@@ -73,6 +73,7 @@ final class EDD_Reviews {
 	private function define_constants() {
 		$this->define( 'EDD_REVIEWS_ABSPATH', dirname( EDD_REVIEWS_PLUGIN_FILE ) . '/' );
 		$this->define( 'EDD_REVIEWS_PLUGIN_BASENAME', plugin_basename( EDD_REVIEWS_PLUGIN_FILE ) );
+		$this->define( 'EDD_REVIEWS_TEMPLATE_DEBUG_MODE', false );
 	}
 
 	/**
@@ -82,6 +83,7 @@ final class EDD_Reviews {
 		include_once EDD_REVIEWS_ABSPATH . 'includes/core-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/template-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-post-types.php';
+		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-template-loader.php';
 	}
 
 	/**
@@ -104,6 +106,15 @@ final class EDD_Reviews {
 		if ( ! defined( $name ) ) {
 			define( $name, $value );
 		}
+	}
+
+	/**
+	 * Get the plugin path.
+	 *
+	 * @return string
+	 */
+	public function plugin_path() {
+		return untrailingslashit( plugin_dir_path( EDD_REVIEWS_PLUGIN_FILE ) );
 	}
 
 }

@@ -4,7 +4,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 class EDD_Reviews_Post_Types {
+
 	public function __construct() {
 		add_filter( 'edd_download_supports', [ $this, 'edd_download_supports' ] );
 	}
@@ -14,4 +16,5 @@ class EDD_Reviews_Post_Types {
 
 		return $supports;
 	}
+
 }
