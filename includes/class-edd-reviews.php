@@ -80,6 +80,7 @@ final class EDD_Reviews {
 	 */
 	private function includes() {
 		include_once EDD_REVIEWS_ABSPATH . 'includes/core-functions.php';
+		include_once EDD_REVIEWS_ABSPATH . 'includes/template-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-post-types.php';
 	}
 
@@ -90,6 +91,7 @@ final class EDD_Reviews {
 	 */
 	private function init_hooks() {
 		new EDD_Reviews_Post_Types();
+		add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
 	}
 
 	/**
