@@ -43,7 +43,7 @@ function edd_reviews() {
 	if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
 
 		if ( ! class_exists( 'EDD_Extension_Activation' ) ) {
-			require_once 'includes/class-edd-extension-activation.php';
+			include_once 'includes/class-edd-extension-activation.php';
 		}
 
 		$activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
