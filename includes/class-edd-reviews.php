@@ -80,9 +80,11 @@ final class EDD_Reviews {
 	 * Include required core files used in admin and on the frontend.
 	 */
 	private function includes() {
-		include_once EDD_REVIEWS_ABSPATH . 'includes/core-functions.php';
-		include_once EDD_REVIEWS_ABSPATH . 'includes/template-functions.php';
+		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-core-functions.php';
+		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-conditional-functions.php';
+		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-template-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-post-types.php';
+		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-comments.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-template-loader.php';
 	}
 
@@ -93,6 +95,8 @@ final class EDD_Reviews {
 	 */
 	private function init_hooks() {
 		new EDD_Reviews_Post_Types();
+		new EDD_Reviews_Template_Loader();
+		new EDD_Reviews_Comments();
 		add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
 	}
 
