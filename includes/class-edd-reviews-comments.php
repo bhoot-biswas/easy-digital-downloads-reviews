@@ -70,4 +70,37 @@ class EDD_Reviews_Comments {
 		}
 	}
 
+	/**
+	 * Get download rating count for a download. Please note this is not cached.
+	 *
+	 * @since 0.1.0
+	 * @param EDD_Download $download Download instance.
+	 * @return int[]
+	 */
+	public static function get_rating_counts_for_download( &$download ) {
+		global $wpdb;
+
+		$counts     = array();
+		$raw_counts = $wpdb->get_results(
+			$wpdb->prepare(
+				"
+			SELECT meta_value, COUNT( * ) as meta_value_count FROM $wpdb->commentmeta
+			LEFT JOIN $wpdb->comments ON $wpdb->commentmeta.comment_id = $wpdb->comments.comment_ID
+			WHERE meta_key = 'rating'
+			AND comment_post_ID = %d
+			AND comment_approved = '1'
+			AND meta_value > 0
+			GROUP BY meta_value
+				",
+				$download->get_ID()
+			)
+		);
+
+		foreach ( $raw_counts as $count ) {
+			$counts[ $count->meta_value ] = absint( $count->meta_value_count ); // WPCS: slow query ok.
+		}
+
+		return $counts;
+	}
+
 }
