@@ -103,4 +103,63 @@ class EDD_Reviews_Comments {
 		return $counts;
 	}
 
+	/**
+	 * Get download rating for a download. Please note this is not cached.
+	 *
+	 * @since 0.1.0
+	 * @param EDD_Download $download Download instance.
+	 * @return float
+	 */
+	public static function get_average_rating_for_download( &$download ) {
+		global $wpdb;
+
+		$count = $download->get_rating_count();
+
+		if ( $count ) {
+			$ratings = $wpdb->get_var(
+				$wpdb->prepare(
+					"
+				SELECT SUM(meta_value) FROM $wpdb->commentmeta
+				LEFT JOIN $wpdb->comments ON $wpdb->commentmeta.comment_id = $wpdb->comments.comment_ID
+				WHERE meta_key = 'rating'
+				AND comment_post_ID = %d
+				AND comment_approved = '1'
+				AND meta_value > 0
+					",
+					$download->get_ID()
+				)
+			);
+			$average = number_format( $ratings / $count, 2, '.', '' );
+		} else {
+			$average = 0;
+		}
+
+		return $average;
+	}
+
+	/**
+	 * Get download review count for a download (not replies). Please note this is not cached.
+	 *
+	 * @since 0.1.0
+	 * @param EDD_Download $download Download instance.
+	 * @return int
+	 */
+	public static function get_review_count_for_download( &$download ) {
+		global $wpdb;
+
+		$count = $wpdb->get_var(
+			$wpdb->prepare(
+				"
+			SELECT COUNT(*) FROM $wpdb->comments
+			WHERE comment_parent = 0
+			AND comment_post_ID = %d
+			AND comment_approved = '1'
+				",
+				$download->get_ID()
+			)
+		);
+
+		return $count;
+	}
+
 }
