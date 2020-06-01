@@ -66,8 +66,40 @@ class EDD_Reviews_Comments {
 	 * @param int $post_id Post ID.
 	 */
 	public static function clear_transients( $post_id ) {
-		if ( 'download' === get_post_type( $post_id ) ) {
+		$post_type = get_post_type( $post_id );
+		if ( 'download' !== $post_type ) {
+			return;
 		}
+
+		$download = edd_get_download( $post_id );
+		edd_set_download_review_count( $download->get_ID(), self::get_review_count_for_download( $download ) );
+		edd_set_download_rating_counts( $download->get_ID(), self::get_rating_counts_for_download( $download ) );
+		edd_set_download_average_rating( $download->get_ID(), self::get_average_rating_for_download( $download ) );
+	}
+
+	/**
+	 * Get download review count for a download (not replies). Please note this is not cached.
+	 *
+	 * @since 0.1.0
+	 * @param EDD_Download $download Download instance.
+	 * @return int
+	 */
+	public static function get_review_count_for_download( &$download ) {
+		global $wpdb;
+
+		$count = $wpdb->get_var(
+			$wpdb->prepare(
+				"
+			SELECT COUNT(*) FROM $wpdb->comments
+			WHERE comment_parent = 0
+			AND comment_post_ID = %d
+			AND comment_approved = '1'
+				",
+				$download->get_ID()
+			)
+		);
+
+		return $count;
 	}
 
 	/**
@@ -113,7 +145,7 @@ class EDD_Reviews_Comments {
 	public static function get_average_rating_for_download( &$download ) {
 		global $wpdb;
 
-		$count = $download->get_rating_count();
+		$count = get_post_meta( $download->get_ID(), '_rating_counts', true );
 
 		if ( $count ) {
 			$ratings = $wpdb->get_var(
@@ -135,31 +167,6 @@ class EDD_Reviews_Comments {
 		}
 
 		return $average;
-	}
-
-	/**
-	 * Get download review count for a download (not replies). Please note this is not cached.
-	 *
-	 * @since 0.1.0
-	 * @param EDD_Download $download Download instance.
-	 * @return int
-	 */
-	public static function get_review_count_for_download( &$download ) {
-		global $wpdb;
-
-		$count = $wpdb->get_var(
-			$wpdb->prepare(
-				"
-			SELECT COUNT(*) FROM $wpdb->comments
-			WHERE comment_parent = 0
-			AND comment_post_ID = %d
-			AND comment_approved = '1'
-				",
-				$download->get_ID()
-			)
-		);
-
-		return $count;
 	}
 
 }
