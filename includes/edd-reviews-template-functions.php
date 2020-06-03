@@ -36,3 +36,15 @@ if ( ! function_exists( 'edd_comments' ) ) {
 		edd_get_template_part( 'single-download/review' );
 	}
 }
+
+if ( ! function_exists( 'edd_reviews_review_display_gravatar' ) ) {
+	/**
+	 * Display the review authors gravatar
+	 *
+	 * @param array $comment WP_Comment.
+	 * @return void
+	 */
+	function edd_reviews_review_display_gravatar( $comment ) {
+		echo get_avatar( $comment, apply_filters( 'edd_reviews_review_gravatar_size', '60' ), '' );
+	}
+}
