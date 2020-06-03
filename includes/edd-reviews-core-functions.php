@@ -6,6 +6,72 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Retrieves a template part
+ *
+ * @since 0.1.0
+ *
+ * Taken from bbPress
+ *
+ * @param string $slug
+ * @param string $name Optional. Default null
+ * @param bool   $args
+ *
+ * @return string
+ *
+ * @uses edd_locate_template()
+ * @uses load_template()
+ * @uses get_template_part()
+ */
+function edd_reviews_get_template( $slug, $name = null, $args = array() ) {
+	$load_template = apply_filters( 'edd_allow_template_' . $slug . '_' . $name, true );
+	if ( false === $load_template ) {
+		return '';
+	}
+
+	// Setup possible parts
+	$templates = array();
+	if ( isset( $name ) ) {
+		$templates[] = $slug . '-' . $name . '.php';
+	}
+	$templates[] = $slug . '.php';
+
+	// Locate the part that is found
+	$template = edd_locate_template( $templates, false, false );
+
+	// Allow 3rd party plugin filter template file from their plugin.
+	$filter_template = apply_filters( 'edd_reviews_get_template', $template, $template_name, $args );
+
+	if ( $filter_template !== $template ) {
+		if ( ! file_exists( $filter_template ) ) {
+			/* translators: %s template */
+			wc_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'edd-reviews' ), '<code>' . $template . '</code>' ), '0.1.0' );
+			return;
+		}
+		$template = $filter_template;
+	}
+
+	$action_args = array(
+		'template_name' => $template_name,
+		'located'       => $template,
+		'args'          => $args,
+	);
+
+	if ( ! empty( $args ) && is_array( $args ) ) {
+		if ( isset( $args['action_args'] ) ) {
+			wc_doing_it_wrong(
+				__FUNCTION__,
+				__( 'action_args should not be overwritten when calling edd_reviews_get_template.', 'edd-reviews' ),
+				'0.1.0'
+			);
+			unset( $args['action_args'] );
+		}
+		extract( $args ); // @codingStandardsIgnoreLine
+	}
+
+	include $action_args['located'];
+}
+
+/**
  * Set rating counts.
  *
  * @param array $counts Download rating counts.
