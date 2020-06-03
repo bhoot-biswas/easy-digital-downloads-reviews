@@ -26,40 +26,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php
 		/**
-		 * The woocommerce_review_before hook
+		 * The edd_reviews_review_before hook
 		 *
-		 * @hooked woocommerce_review_display_gravatar - 10
+		 * @hooked edd_reviews_review_display_gravatar - 10
 		 */
-		do_action( 'woocommerce_review_before', get_comment() );
+		do_action( 'edd_reviews_review_before', get_comment() );
 		?>
 
 		<div class="comment-text">
 
 			<?php
 			/**
-			 * The woocommerce_review_before_comment_meta hook.
+			 * The edd_reviews_review_before_comment_meta hook.
 			 *
-			 * @hooked woocommerce_review_display_rating - 10
+			 * @hooked edd_reviews_review_display_rating - 10
 			 */
-			do_action( 'woocommerce_review_before_comment_meta', get_comment() );
+			do_action( 'edd_reviews_review_before_comment_meta', get_comment() );
 
 			/**
-			 * The woocommerce_review_meta hook.
+			 * The edd_reviews_review_meta hook.
 			 *
-			 * @hooked woocommerce_review_display_meta - 10
+			 * @hooked edd_reviews_review_display_meta - 10
 			 */
-			do_action( 'woocommerce_review_meta', get_comment() );
+			do_action( 'edd_reviews_review_meta', get_comment() );
 
-			do_action( 'woocommerce_review_before_comment_text', get_comment() );
+			do_action( 'edd_reviews_review_before_comment_text', get_comment() );
 
 			/**
-			 * The woocommerce_review_comment_text hook
+			 * The edd_reviews_review_comment_text hook
 			 *
-			 * @hooked woocommerce_review_display_comment_text - 10
+			 * @hooked edd_reviews_review_display_comment_text - 10
 			 */
-			do_action( 'woocommerce_review_comment_text', get_comment() );
+			do_action( 'edd_reviews_review_comment_text', get_comment() );
 
-			do_action( 'woocommerce_review_after_comment_text', get_comment() );
+			do_action( 'edd_reviews_review_after_comment_text', get_comment() );
 			?>
 
 		</div>
