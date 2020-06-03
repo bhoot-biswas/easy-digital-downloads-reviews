@@ -21,3 +21,25 @@ function edd_reviews_append_comments( $download_id ) {
 		comments_template();
 	endif;
 }
+
+if ( ! function_exists( 'edd_comments' ) ) {
+
+	/**
+	 * Output the Review comments template.
+	 *
+	 * @param WP_Comment $comment Comment object.
+	 * @param array      $args Arguments.
+	 * @param int        $depth Depth.
+	 */
+	function edd_comments( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment; // WPCS: override ok.
+		// edd_get_template(
+		// 	'single-download/review.php',
+		// 	array(
+		// 		'comment' => $comment,
+		// 		'args'    => $args,
+		// 		'depth'   => $depth,
+		// 	)
+		// );
+	}
+}
