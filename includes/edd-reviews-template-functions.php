@@ -33,18 +33,14 @@ if ( ! function_exists( 'edd_comments' ) ) {
 	 */
 	function edd_comments( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment; // WPCS: override ok.
-		extract( [ 'hello' => 'JJ' ] );
 
-		include edd_locate_template( 'test.php' );
-
-		// edd_get_template_part( 'test' );
-		// edd_get_template(
-		// 	'single-download/review.php',
-		// 	array(
-		// 		'comment' => $comment,
-		// 		'args'    => $args,
-		// 		'depth'   => $depth,
-		// 	)
-		// );
+		edd_reviews_get_template(
+			'single-download/review.php',
+			array(
+				'comment' => $comment,
+				'args'    => $args,
+				'depth'   => $depth,
+			)
+		);
 	}
 }

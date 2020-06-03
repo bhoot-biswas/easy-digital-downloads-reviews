@@ -22,21 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses load_template()
  * @uses get_template_part()
  */
-function edd_reviews_get_template( $slug, $name = null, $args = array() ) {
-	$load_template = apply_filters( 'edd_allow_template_' . $slug . '_' . $name, true );
-	if ( false === $load_template ) {
-		return '';
-	}
-
-	// Setup possible parts
-	$templates = array();
-	if ( isset( $name ) ) {
-		$templates[] = $slug . '-' . $name . '.php';
-	}
-	$templates[] = $slug . '.php';
-
+function edd_reviews_get_template( $template_name, $args = array() ) {
 	// Locate the part that is found
-	$template = edd_locate_template( $templates, false, false );
+	$template = edd_locate_template( $template_name, false, false );
 
 	// Allow 3rd party plugin filter template file from their plugin.
 	$filter_template = apply_filters( 'edd_reviews_get_template', $template, $template_name, $args );
