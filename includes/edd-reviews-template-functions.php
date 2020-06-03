@@ -48,3 +48,36 @@ if ( ! function_exists( 'edd_reviews_review_display_gravatar' ) ) {
 		echo get_avatar( $comment, apply_filters( 'edd_reviews_review_gravatar_size', '60' ), '' );
 	}
 }
+
+if ( ! function_exists( 'edd_reviews_review_display_rating' ) ) {
+	/**
+	 * Display the reviewers star rating
+	 *
+	 * @return void
+	 */
+	function edd_reviews_review_display_rating() {
+		if ( post_type_supports( 'download', 'comments' ) ) {
+			edd_get_template_part( 'single-download/review-rating' );
+		}
+	}
+}
+
+/**
+ * Get HTML for ratings.
+ *
+ * @since  0.1.0
+ * @param  float $rating Rating being shown.
+ * @param  int   $count  Total number of ratings.
+ * @return string
+ */
+function edd_reviews_get_rating_html( $rating, $count = 0 ) {
+	$html = '';
+
+	if ( 0 < $rating ) {
+		/* translators: %s: rating */
+		$label = sprintf( __( 'Rated %s out of 5', 'edd-reviews' ), $rating );
+		$html  = '<div class="star-rating" role="img" aria-label="' . esc_attr( $label ) . '">' . wc_get_star_rating_html( $rating, $count ) . '</div>';
+	}
+
+	return apply_filters( 'edd_reviews_download_get_rating_html', $html, $rating, $count );
+}
