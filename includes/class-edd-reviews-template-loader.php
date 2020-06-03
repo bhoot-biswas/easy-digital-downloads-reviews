@@ -12,6 +12,17 @@ class EDD_Reviews_Template_Loader {
 
 	public function __construct() {
 		add_filter( 'comments_template', array( $this, 'comments_template_loader' ) );
+		add_filter( 'edd_template_paths', array( $this, 'template_paths' ) );
+	}
+
+	/**
+	 * [template_paths description]
+	 * @param  [type] $file_paths [description]
+	 * @return [type]             [description]
+	 */
+	public function template_paths( $file_paths ) {
+		$file_paths[50] = trailingslashit( edd_reviews()->plugin_path() ) . 'templates/';
+		return $file_paths;
 	}
 
 	/**
