@@ -145,7 +145,7 @@ class EDD_Reviews_Comments {
 	public static function get_average_rating_for_download( &$download ) {
 		global $wpdb;
 
-		$count = edd_get_rating_counts( $download->get_ID() );
+		$count = edd_get_rating_count( $download->get_ID() );
 
 		if ( $count ) {
 			$ratings = $wpdb->get_var(
