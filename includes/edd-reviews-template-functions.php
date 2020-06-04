@@ -73,6 +73,17 @@ if ( ! function_exists( 'edd_reviews_review_display_meta' ) ) {
 	}
 }
 
+if ( ! function_exists( 'edd_reviews_review_display_comment_text' ) ) {
+	/**
+	 * Display the review content.
+	 */
+	function edd_reviews_review_display_comment_text() {
+		echo '<div class="description">';
+		comment_text();
+		echo '</div>';
+	}
+}
+
 /**
  * Get HTML for ratings.
  *
