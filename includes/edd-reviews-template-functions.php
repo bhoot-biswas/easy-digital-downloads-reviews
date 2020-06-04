@@ -62,6 +62,17 @@ if ( ! function_exists( 'edd_reviews_review_display_rating' ) ) {
 	}
 }
 
+if ( ! function_exists( 'edd_reviews_review_display_meta' ) ) {
+	/**
+	 * Display the review authors meta (name, verified owner, review date)
+	 *
+	 * @return void
+	 */
+	function edd_reviews_review_display_meta() {
+		edd_get_template_part( 'single-download/review-meta' );
+	}
+}
+
 /**
  * Get HTML for ratings.
  *
