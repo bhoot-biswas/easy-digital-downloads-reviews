@@ -28,6 +28,9 @@ class EDD_Reviews_Comments {
 		add_action( 'comment_post', array( __CLASS__, 'add_comment_rating' ), 1 );
 		add_action( 'comment_moderation_recipients', array( __CLASS__, 'comment_moderation_recipients' ), 10, 2 );
 
+		// Review of verified purchase.
+		add_action( 'comment_post', array( __CLASS__, 'add_comment_purchase_verification' ) );
+
 		// Set comment type.
 		add_action( 'preprocess_comment', array( __CLASS__, 'update_comment_type' ), 1 );
 	}
