@@ -26,6 +26,7 @@ class EDD_Reviews_Comments {
 		add_filter( 'comments_open', array( __CLASS__, 'comments_open' ), 10, 2 );
 		add_filter( 'preprocess_comment', array( __CLASS__, 'check_comment_rating' ), 0 );
 		add_action( 'comment_post', array( __CLASS__, 'add_comment_rating' ), 1 );
+		add_action( 'comment_moderation_recipients', array( __CLASS__, 'comment_moderation_recipients' ), 10, 2 );
 	}
 
 	/**
@@ -75,6 +76,23 @@ class EDD_Reviews_Comments {
 				self::clear_transients( $post_id );
 			}
 		}
+	}
+
+	/**
+	 * Modify recipient of review email.
+	 *
+	 * @param array $emails     Emails.
+	 * @param int   $comment_id Comment ID.
+	 * @return array
+	 */
+	public static function comment_moderation_recipients( $emails, $comment_id ) {
+		$comment = get_comment( $comment_id );
+
+		if ( $comment && 'download' === get_post_type( $comment->comment_post_ID ) ) {
+			$emails = array( get_option( 'admin_email' ) );
+		}
+
+		return $emails;
 	}
 
 	/**
