@@ -22,8 +22,25 @@ class EDD_Reviews_Comments {
 	 * Hook in methods.
 	 */
 	public static function init() {
+		// Rating posts.
+		add_filter( 'comments_open', array( __CLASS__, 'comments_open' ), 10, 2 );
 		add_filter( 'preprocess_comment', array( __CLASS__, 'check_comment_rating' ), 0 );
 		add_action( 'comment_post', array( __CLASS__, 'add_comment_rating' ), 1 );
+	}
+
+	/**
+	 * See if comments are open.
+	 *
+	 * @since  0.1.0
+	 * @param  bool $open    Whether the current post is open for comments.
+	 * @param  int  $post_id Post ID.
+	 * @return bool
+	 */
+	public static function comments_open( $open, $post_id ) {
+		if ( 'download' === get_post_type( $post_id ) && ! post_type_supports( 'download', 'comments' ) ) {
+			$open = false;
+		}
+		return $open;
 	}
 
 	/**
