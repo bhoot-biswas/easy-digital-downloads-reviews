@@ -28,6 +28,9 @@ class EDD_Reviews_Comments {
 		add_action( 'comment_post', array( __CLASS__, 'add_comment_rating' ), 1 );
 		add_action( 'comment_moderation_recipients', array( __CLASS__, 'comment_moderation_recipients' ), 10, 2 );
 
+		// Support avatars for `review` comment type.
+		add_filter( 'get_avatar_comment_types', array( __CLASS__, 'add_avatar_for_review_comment_type' ) );
+
 		// Review of verified purchase.
 		add_action( 'comment_post', array( __CLASS__, 'add_comment_purchase_verification' ) );
 
@@ -208,6 +211,17 @@ class EDD_Reviews_Comments {
 		}
 
 		return $average;
+	}
+
+	/**
+	 * Make sure WP displays avatars for comments with the `review` type.
+	 *
+	 * @since  0.1.0
+	 * @param  array $comment_types Comment types.
+	 * @return array
+	 */
+	public static function add_avatar_for_review_comment_type( $comment_types ) {
+		return array_merge( $comment_types, array( 'review' ) );
 	}
 
 	/**
