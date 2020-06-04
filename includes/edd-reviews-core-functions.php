@@ -32,7 +32,7 @@ function edd_reviews_get_template( $template_name, $args = array() ) {
 	if ( $filter_template !== $template ) {
 		if ( ! file_exists( $filter_template ) ) {
 			/* translators: %s template */
-			wc_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'edd-reviews' ), '<code>' . $template . '</code>' ), '0.1.0' );
+			wc_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'easy-digital-downloads-reviews' ), '<code>' . $template . '</code>' ), '0.1.0' );
 			return;
 		}
 		$template = $filter_template;
@@ -48,7 +48,7 @@ function edd_reviews_get_template( $template_name, $args = array() ) {
 		if ( isset( $args['action_args'] ) ) {
 			wc_doing_it_wrong(
 				__FUNCTION__,
-				__( 'action_args should not be overwritten when calling edd_reviews_get_template.', 'edd-reviews' ),
+				__( 'action_args should not be overwritten when calling edd_reviews_get_template.', 'easy-digital-downloads-reviews' ),
 				'0.1.0'
 			);
 			unset( $args['action_args'] );

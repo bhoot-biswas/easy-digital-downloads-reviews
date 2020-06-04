@@ -1,0 +1,180 @@
+# Copyright (C) 2020 YOUR NAME HERE
+# This file is distributed under the same license as the Easy Digital Downloads Reviews package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Digital Downloads Reviews 0.1.0\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/easy-digital-downloads-reviews\n"
+"POT-Creation-Date: 2020-06-04 20:13:02+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+
+#: includes/class-edd-extension-activation.php:49
+msgid "This plugin"
+msgstr ""
+
+#: includes/class-edd-extension-activation.php:83
+msgid " requires %1$sEasy Digital Downloads%2$s. Please activate it to continue."
+msgstr ""
+
+#: includes/class-edd-extension-activation.php:85
+msgid " requires %1$sEasy Digital Downloads%2$s. Please install it to continue."
+msgstr ""
+
+#: includes/class-edd-reviews-comments.php:65
+msgid "Please rate the download."
+msgstr ""
+
+#: includes/class-edd-reviews.php:58
+msgid "Cloning is forbidden."
+msgstr ""
+
+#: includes/class-edd-reviews.php:67
+msgid "Unserializing instances of this class is forbidden."
+msgstr ""
+
+#: includes/edd-reviews-core-functions.php:35
+#. translators: %s template
+msgid "%s does not exist."
+msgstr ""
+
+#: includes/edd-reviews-core-functions.php:51
+msgid "action_args should not be overwritten when calling edd_reviews_get_template."
+msgstr ""
+
+#: includes/edd-reviews-template-functions.php:100
+#: includes/edd-reviews-template-functions.php:123
+#. translators: %s: rating
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: includes/edd-reviews-template-functions.php:120
+#. translators: 1: rating 2: rating count
+msgid "Rated %1$s out of 5 based on %2$s customer rating"
+msgid_plural "Rated %1$s out of 5 based on %2$s customer ratings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/single-download/review-meta.php:28
+msgid "Your review is awaiting approval"
+msgstr ""
+
+#: templates/single-download/review-meta.php:38
+msgid "verified owner"
+msgstr ""
+
+#: templates/single-download-reviews.php:35
+#. translators: 1: title.
+msgid "One review for &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: templates/single-download-reviews.php:61
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/single-download-reviews.php:70
+#. translators: %s is product title
+msgid "Write a Review"
+msgstr ""
+
+#: templates/single-download-reviews.php:70
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: templates/single-download-reviews.php:72
+#. translators: %s is product title
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: templates/single-download-reviews.php:74
+msgid "Post Review"
+msgstr ""
+
+#: templates/single-download-reviews.php:82
+msgid "Name"
+msgstr ""
+
+#: templates/single-download-reviews.php:88
+msgid "Email"
+msgstr ""
+
+#: templates/single-download-reviews.php:113
+#. translators: %s opening and closing link tags respectively
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr ""
+
+#: templates/single-download-reviews.php:116
+msgid "Your rating"
+msgstr ""
+
+#: templates/single-download-reviews.php:117
+msgid "Rate&hellip;"
+msgstr ""
+
+#: templates/single-download-reviews.php:118
+msgid "Perfect"
+msgstr ""
+
+#: templates/single-download-reviews.php:119
+msgid "Good"
+msgstr ""
+
+#: templates/single-download-reviews.php:120
+msgid "Average"
+msgstr ""
+
+#: templates/single-download-reviews.php:121
+msgid "Not that bad"
+msgstr ""
+
+#: templates/single-download-reviews.php:122
+msgid "Very poor"
+msgstr ""
+
+#: templates/single-download-reviews.php:125
+msgid "Your review"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Easy Digital Downloads Reviews"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "PLUGIN SITE HERE"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "PLUGIN DESCRIPTION HERE"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "YOUR NAME HERE"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "YOUR SITE HERE"
+msgstr ""
+
+#: templates/single-download-reviews.php:41
+#. translators: 1: comment count number, 2: title.
+msgctxt "comments title"
+msgid "%1$s review for &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s reviews for &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""

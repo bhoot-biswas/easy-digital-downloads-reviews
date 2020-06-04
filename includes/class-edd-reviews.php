@@ -55,7 +55,7 @@ final class EDD_Reviews {
 	 * @since 0.1.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'edd-reviews' ), '0.1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Cloning is forbidden.', 'easy-digital-downloads-reviews' ), '0.1.0' );
 	}
 
 	/**
@@ -64,7 +64,7 @@ final class EDD_Reviews {
 	 * @since 0.1.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, __( 'Unserializing instances of this class is forbidden.', 'edd-reviews' ), '0.1.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Unserializing instances of this class is forbidden.', 'easy-digital-downloads-reviews' ), '0.1.0' );
 	}
 
 	/**
@@ -99,7 +99,7 @@ final class EDD_Reviews {
 		new EDD_Reviews_Post_Types();
 		new EDD_Reviews_Template_Loader();
 		EDD_Reviews_Comments::init();
-		add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
+		// add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
 
 		add_action(
 			'wp_ajax_tests',

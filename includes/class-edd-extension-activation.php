@@ -46,7 +46,7 @@ class EDD_Extension_Activation {
 		if ( isset( $plugins[ $this->plugin_path . '/' . $this->plugin_file ]['Name'] ) ) {
 			$this->plugin_name = str_replace( 'Easy Digital Downloads - ', '', $plugins[ $this->plugin_path . '/' . $this->plugin_file ]['Name'] );
 		} else {
-			$this->plugin_name = __( 'This plugin', 'edd' );
+			$this->plugin_name = __( 'This plugin', 'easy-digital-downloads-reviews' );
 		}
 
 		// Is EDD installed?
@@ -80,9 +80,9 @@ class EDD_Extension_Activation {
 	 */
 	public function missing_edd_notice() {
 		if ( $this->has_edd ) {
-			echo '<div class="error"><p>' . $this->plugin_name . sprintf( __( ' requires %1$sEasy Digital Downloads%2$s. Please activate it to continue.', 'edd-ppe' ), '<a href="https://easydigitaldownloads.com/" title="Easy Digital Downloads" target="_blank">', '</a>' ) . '</p></div>';
+			echo '<div class="error"><p>' . $this->plugin_name . sprintf( __( ' requires %1$sEasy Digital Downloads%2$s. Please activate it to continue.', 'easy-digital-downloads-reviews' ), '<a href="https://easydigitaldownloads.com/" title="Easy Digital Downloads" target="_blank">', '</a>' ) . '</p></div>';
 		} else {
-			echo '<div class="error"><p>' . $this->plugin_name . sprintf( __( ' requires %1$sEasy Digital Downloads%2$s. Please install it to continue.', 'edd-ppe' ), '<a href="https://easydigitaldownloads.com/" title="Easy Digital Downloads" target="_blank">', '</a>' ) . '</p></div>';
+			echo '<div class="error"><p>' . $this->plugin_name . sprintf( __( ' requires %1$sEasy Digital Downloads%2$s. Please install it to continue.', 'easy-digital-downloads-reviews' ), '<a href="https://easydigitaldownloads.com/" title="Easy Digital Downloads" target="_blank">', '</a>' ) . '</p></div>';
 		}
 	}
 }

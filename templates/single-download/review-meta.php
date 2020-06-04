@@ -25,7 +25,7 @@ if ( '0' === $comment->comment_approved ) { ?>
 
 	<p class="meta">
 		<em class="edd-reviews-review__awaiting-approval">
-			<?php esc_html_e( 'Your review is awaiting approval', 'edd-reviews' ); ?>
+			<?php esc_html_e( 'Your review is awaiting approval', 'easy-digital-downloads-reviews' ); ?>
 		</em>
 	</p>
 
@@ -35,7 +35,7 @@ if ( '0' === $comment->comment_approved ) { ?>
 		<strong class="edd-reviews-review__author"><?php comment_author(); ?> </strong>
 		<?php
 		if ( 'yes' === get_option( 'edd_reviews_review_rating_verification_label' ) && $verified ) {
-			echo '<em class="edd-reviews-review__verified verified">(' . esc_attr__( 'verified owner', 'edd-reviews' ) . ')</em> ';
+			echo '<em class="edd-reviews-review__verified verified">(' . esc_attr__( 'verified owner', 'easy-digital-downloads-reviews' ) . ')</em> ';
 		}
 
 		?>

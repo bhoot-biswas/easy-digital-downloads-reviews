@@ -28,18 +28,18 @@ if ( post_password_required() ) {
 		?>
 		<h2 class="comments-title">
 			<?php
-			$_s_comment_count = get_comments_number();
-			if ( '1' === $_s_comment_count ) {
+			$edd_reviews_comment_count = get_comments_number();
+			if ( '1' === $edd_reviews_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', '_s' ),
+					esc_html__( 'One review for &ldquo;%1$s&rdquo;', 'easy-digital-downloads-reviews' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $_s_comment_count, 'comments title', '_s' ) ),
-					number_format_i18n( $_s_comment_count ),
+					esc_html( _nx( '%1$s review for &ldquo;%2$s&rdquo;', '%1$s reviews for &ldquo;%2$s&rdquo;', $edd_reviews_comment_count, 'comments title', 'easy-digital-downloads-reviews' ) ),
+					number_format_i18n( $edd_reviews_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			}
@@ -58,7 +58,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', '_s' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'easy-digital-downloads-reviews' ); ?></p>
 			<?php
 		endif;
 
@@ -67,13 +67,11 @@ if ( post_password_required() ) {
 	$commenter    = wp_get_current_commenter();
 	$comment_form = array(
 		/* translators: %s is product title */
-		'title_reply'         => have_comments() ? esc_html__( 'Add a review', 'woocommerce' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'woocommerce' ), get_the_title() ),
+		'title_reply'         => have_comments() ? esc_html__( 'Write a Review', 'easy-digital-downloads-reviews' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'easy-digital-downloads-reviews' ), get_the_title() ),
 		/* translators: %s is product title */
-		'title_reply_to'      => esc_html__( 'Leave a Reply to %s', 'woocommerce' ),
-		'title_reply_before'  => '<span id="reply-title" class="comment-reply-title">',
-		'title_reply_after'   => '</span>',
+		'title_reply_to'      => esc_html__( 'Leave a Reply to %s', 'easy-digital-downloads-reviews' ),
 		'comment_notes_after' => '',
-		'label_submit'        => esc_html__( 'Submit', 'woocommerce' ),
+		'label_submit'        => esc_html__( 'Post Review', 'easy-digital-downloads-reviews' ),
 		'logged_in_as'        => '',
 		'comment_field'       => '',
 	);
@@ -81,13 +79,13 @@ if ( post_password_required() ) {
 	$name_email_required = (bool) get_option( 'require_name_email', 1 );
 	$fields              = array(
 		'author' => array(
-			'label'    => __( 'Name', 'woocommerce' ),
+			'label'    => __( 'Name', 'easy-digital-downloads-reviews' ),
 			'type'     => 'text',
 			'value'    => $commenter['comment_author'],
 			'required' => $name_email_required,
 		),
 		'email'  => array(
-			'label'    => __( 'Email', 'woocommerce' ),
+			'label'    => __( 'Email', 'easy-digital-downloads-reviews' ),
 			'type'     => 'email',
 			'value'    => $commenter['comment_author_email'],
 			'required' => $name_email_required,
@@ -112,19 +110,19 @@ if ( post_password_required() ) {
 	$purchase_history = edd_get_option( 'purchase_history_page', 0 );
 	if ( ! empty( $purchase_history ) ) {
 		/* translators: %s opening and closing link tags respectively */
-		$comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'woocommerce' ), '<a href="' . esc_url( get_permalink( $purchase_history ) ) . '">', '</a>' ) . '</p>';
+		$comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'easy-digital-downloads-reviews' ), '<a href="' . esc_url( get_permalink( $purchase_history ) ) . '">', '</a>' ) . '</p>';
 	}
 
-	$comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'woocommerce' ) . '</label><select name="rating" id="rating" required>
-        <option value="">' . esc_html__( 'Rate&hellip;', 'woocommerce' ) . '</option>
-        <option value="5">' . esc_html__( 'Perfect', 'woocommerce' ) . '</option>
-        <option value="4">' . esc_html__( 'Good', 'woocommerce' ) . '</option>
-        <option value="3">' . esc_html__( 'Average', 'woocommerce' ) . '</option>
-        <option value="2">' . esc_html__( 'Not that bad', 'woocommerce' ) . '</option>
-        <option value="1">' . esc_html__( 'Very poor', 'woocommerce' ) . '</option>
+	$comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'easy-digital-downloads-reviews' ) . '</label><select name="rating" id="rating" required>
+        <option value="">' . esc_html__( 'Rate&hellip;', 'easy-digital-downloads-reviews' ) . '</option>
+        <option value="5">' . esc_html__( 'Perfect', 'easy-digital-downloads-reviews' ) . '</option>
+        <option value="4">' . esc_html__( 'Good', 'easy-digital-downloads-reviews' ) . '</option>
+        <option value="3">' . esc_html__( 'Average', 'easy-digital-downloads-reviews' ) . '</option>
+        <option value="2">' . esc_html__( 'Not that bad', 'easy-digital-downloads-reviews' ) . '</option>
+        <option value="1">' . esc_html__( 'Very poor', 'easy-digital-downloads-reviews' ) . '</option>
     </select></div>';
 
-	$comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'woocommerce' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
+	$comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'easy-digital-downloads-reviews' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
 
 	comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
 	?>
