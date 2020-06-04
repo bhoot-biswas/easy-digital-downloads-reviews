@@ -27,6 +27,9 @@ class EDD_Reviews_Comments {
 		add_filter( 'preprocess_comment', array( __CLASS__, 'check_comment_rating' ), 0 );
 		add_action( 'comment_post', array( __CLASS__, 'add_comment_rating' ), 1 );
 		add_action( 'comment_moderation_recipients', array( __CLASS__, 'comment_moderation_recipients' ), 10, 2 );
+
+		// Set comment type.
+		add_action( 'preprocess_comment', array( __CLASS__, 'update_comment_type' ), 1 );
 	}
 
 	/**
@@ -218,6 +221,21 @@ class EDD_Reviews_Comments {
 			add_comment_meta( $comment_id, 'verified', (int) $verified, true );
 		}
 		return $verified;
+	}
+
+	/**
+	 * Update comment type of download reviews.
+	 *
+	 * @since 0.1.0
+	 * @param array $comment_data Comment data.
+	 * @return array
+	 */
+	public static function update_comment_type( $comment_data ) {
+		if ( ! is_admin() && isset( $_POST['comment_post_ID'], $comment_data['comment_type'] ) && '' === $comment_data['comment_type'] && 'download' === get_post_type( absint( $_POST['comment_post_ID'] ) ) ) { // WPCS: input var ok, CSRF ok.
+			$comment_data['comment_type'] = 'review';
+		}
+
+		return $comment_data;
 	}
 
 }
