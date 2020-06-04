@@ -169,4 +169,20 @@ class EDD_Reviews_Comments {
 		return $average;
 	}
 
+	/**
+	 * Determine if a review is from a verified owner at submission.
+	 *
+	 * @param int $comment_id Comment ID.
+	 * @return bool
+	 */
+	public static function add_comment_purchase_verification( $comment_id ) {
+		$comment  = get_comment( $comment_id );
+		$verified = false;
+		if ( 'download' === get_post_type( $comment->comment_post_ID ) ) {
+			$verified = edd_has_user_purchased( $comment->user_id, $comment->comment_post_ID );
+			add_comment_meta( $comment_id, 'verified', (int) $verified, true );
+		}
+		return $verified;
+	}
+
 }
