@@ -129,6 +129,15 @@ final class EDD_Reviews {
 	}
 
 	/**
+	 * Get the plugin url.
+	 *
+	 * @return string
+	 */
+	public function plugin_url() {
+		return untrailingslashit( plugins_url( '/', EDD_REVIEWS_PLUGIN_FILE ) );
+	}
+
+	/**
 	 * Get the plugin path.
 	 *
 	 * @return string
