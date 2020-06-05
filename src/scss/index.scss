@@ -1,0 +1,31 @@
+@import "variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+#reviews {
+	.comment-list {
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+
+        li.comment,
+		li.review {
+			margin-left: 0;
+		}
+
+		.comment_container {
+			display: flex;
+			align-items: flex-start;
+		}
+
+        .avatar {
+            margin-right: 1rem;
+            border-radius: $border-radius;
+        }
+
+        .comment-text {
+            flex: 1;
+        }
+	}
+}

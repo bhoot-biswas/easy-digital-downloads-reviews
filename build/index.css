@@ -1,1 +1,18 @@
+#reviews .comment-list {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none; }
+  #reviews .comment-list li.comment,
+  #reviews .comment-list li.review {
+    margin-left: 0; }
+  #reviews .comment-list .comment_container {
+    display: flex;
+    align-items: flex-start; }
+  #reviews .comment-list .avatar {
+    margin-right: 1rem;
+    border-radius: 0.25rem; }
+  #reviews .comment-list .comment-text {
+    flex: 1; }
 
+
+/*# sourceMappingURL=index.css.map*/
