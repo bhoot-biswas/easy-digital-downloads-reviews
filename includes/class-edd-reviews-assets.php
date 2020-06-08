@@ -12,6 +12,15 @@ class EDD_Reviews_Assets {
 	}
 
 	public function wp_enqueue_scripts() {
+		$asset_file = include( edd_reviews()->plugin_path() . '/build/index.asset.php' );
+
+		wp_enqueue_script(
+			'myguten-block',
+			edd_reviews()->plugin_url() . '/build/index.js',
+			$asset_file['dependencies'],
+			$asset_file['version']
+		);
+
 		wp_enqueue_style(
 			'edd-reviews',
 			edd_reviews()->plugin_url() . '/build/index.css',

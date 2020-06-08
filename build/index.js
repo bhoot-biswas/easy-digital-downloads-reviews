@@ -99,6 +99,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 
+(function ($) {
+  "use strict";
+
+  $(document).ready(function () {
+    console.log('Hello');
+  });
+})(jQuery);
+
 /***/ }),
 
 /***/ "./src/scss/index.scss":
