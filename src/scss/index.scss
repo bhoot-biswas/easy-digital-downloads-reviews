@@ -2,6 +2,55 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+@font-face {
+	font-family: star;
+	src: url("../fonts/star.eot");
+	src: url("../fonts/star.eot?#iefix") format("embedded-opentype"), url("../fonts/star.woff") format("woff"), url("../fonts/star.ttf") format("truetype"), url("../fonts/star.svg#star") format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: EDDReviews;
+	src: url("../fonts/EDDReviews.eot");
+	src: url("../fonts/EDDReviews.eot?#iefix") format("embedded-opentype"), url("../fonts/EDDReviews.woff") format("woff"), url("../fonts/EDDReviews.ttf") format("truetype"), url("../fonts/EDDReviews.svg#EDDReviews") format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+.star-rating {
+	overflow: hidden;
+	position: relative;
+	height: 1em;
+	line-height: 1;
+	font-size: 1em;
+	width: 5.4em;
+	font-family: star;
+	margin-bottom: 0.7rem;
+
+	&::before {
+		content: "\73\73\73\73\73";
+		float: left;
+		top: 0;
+		left: 0;
+		position: absolute;
+	}
+
+	span {
+		overflow: hidden;
+		float: left;
+		top: 0;
+		left: 0;
+		position: absolute;
+		padding-top: 1.5em;
+	}
+
+	span::before {
+		content: "\53\53\53\53\53";
+		top: 0;
+		position: absolute;
+		left: 0;
+	}
+}
 
 #reviews {
 	.comment-list {
@@ -9,7 +58,7 @@
 		padding-left: 0;
 		list-style: none;
 
-        li.comment,
+		li.comment,
 		li.review {
 			margin-left: 0;
 		}
@@ -19,14 +68,14 @@
 			align-items: flex-start;
 		}
 
-        .avatar {
-            margin-right: 1rem;
-            border-radius: $border-radius;
-        }
+		.avatar {
+			margin-right: 1rem;
+			border-radius: $border-radius;
+		}
 
-        .comment-text {
-            flex: 1;
-        }
+		.comment-text {
+			flex: 1;
+		}
 	}
 
 	p.stars {
@@ -49,13 +98,12 @@
 				width: 1em;
 				height: 1em;
 				line-height: 1;
-				font-family: WooCommerce;
+				font-family: EDDReviews;
 				content: "\e021";
 				text-indent: 0;
 			}
 
 			&:hover {
-
 				~ a::before {
 					content: "\e021";
 				}
@@ -63,9 +111,7 @@
 		}
 
 		&:hover {
-
 			a {
-
 				&::before {
 					content: "\e020";
 				}
@@ -73,9 +119,7 @@
 		}
 
 		&.selected {
-
 			a.active {
-
 				&::before {
 					content: "\e020";
 				}
@@ -86,7 +130,6 @@
 			}
 
 			a:not(.active) {
-
 				&::before {
 					content: "\e020";
 				}
