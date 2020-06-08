@@ -14,5 +14,37 @@
   #reviews .comment-list .comment-text {
     flex: 1; }
 
+#reviews p.stars {
+  margin-top: 0; }
+  #reviews p.stars a {
+    position: relative;
+    height: 1em;
+    width: 1em;
+    text-indent: -999em;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: none; }
+    #reviews p.stars a::before {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      line-height: 1;
+      font-family: WooCommerce;
+      content: "\e021";
+      text-indent: 0; }
+    #reviews p.stars a:hover ~ a::before {
+      content: "\e021"; }
+  #reviews p.stars:hover a::before {
+    content: "\e020"; }
+  #reviews p.stars.selected a.active::before {
+    content: "\e020"; }
+  #reviews p.stars.selected a.active ~ a::before {
+    content: "\e021"; }
+  #reviews p.stars.selected a:not(.active)::before {
+    content: "\e020"; }
+
 
 /*# sourceMappingURL=index.css.map*/

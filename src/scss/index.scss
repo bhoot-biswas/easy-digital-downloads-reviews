@@ -28,4 +28,69 @@
             flex: 1;
         }
 	}
+
+	p.stars {
+		margin-top: 0;
+
+		a {
+			position: relative;
+			height: 1em;
+			width: 1em;
+			text-indent: -999em;
+			display: inline-block;
+			text-decoration: none;
+			box-shadow: none;
+
+			&::before {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1em;
+				height: 1em;
+				line-height: 1;
+				font-family: WooCommerce;
+				content: "\e021";
+				text-indent: 0;
+			}
+
+			&:hover {
+
+				~ a::before {
+					content: "\e021";
+				}
+			}
+		}
+
+		&:hover {
+
+			a {
+
+				&::before {
+					content: "\e020";
+				}
+			}
+		}
+
+		&.selected {
+
+			a.active {
+
+				&::before {
+					content: "\e020";
+				}
+
+				~ a::before {
+					content: "\e021";
+				}
+			}
+
+			a:not(.active) {
+
+				&::before {
+					content: "\e020";
+				}
+			}
+		}
+	}
 }

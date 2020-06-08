@@ -95,15 +95,36 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scss/index.scss */ "./src/scss/index.scss");
-/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scss/index.scss */ "./src/scss/index.scss");
+/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 (function ($) {
   "use strict";
 
   $(document).ready(function () {
-    console.log('Hello');
+    $("#rating").hide().before('<p class="stars">\
+					<span>\
+						<a class="star-1" href="#">1</a>\
+						<a class="star-2" href="#">2</a>\
+						<a class="star-3" href="#">3</a>\
+						<a class="star-4" href="#">4</a>\
+						<a class="star-5" href="#">5</a>\
+					</span>\
+				</p>');
+    $("body").on("click", "#respond p.stars a", function () {
+      var $star = $(this),
+          $rating = $(this).closest("#respond").find("#rating"),
+          $container = $(this).closest(".stars");
+      $rating.val($star.text());
+      $star.siblings("a").removeClass("active");
+      $star.addClass("active");
+      $container.addClass("selected");
+      return false;
+    });
   });
 })(jQuery);
 
@@ -117,6 +138,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "jquery":
+/*!**********************************!*\
+  !*** external {"this":"jQuery"} ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = this["jQuery"]; }());
 
 /***/ })
 
