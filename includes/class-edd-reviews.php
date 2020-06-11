@@ -85,6 +85,18 @@ final class EDD_Reviews {
 	}
 
 	/**
+	 * Define constant if not already set.
+	 *
+	 * @param string      $name  Constant name.
+	 * @param string|bool $value Constant value.
+	 */
+	private function define( $name, $value ) {
+		if ( ! defined( $name ) ) {
+			define( $name, $value );
+		}
+	}
+
+	/**
 	 * Returns true if the request is a non-legacy REST API request.
 	 *
 	 * Legacy REST requests should still run some extra code for backwards compatibility.
@@ -140,6 +152,10 @@ final class EDD_Reviews {
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-template-loader.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-assets.php';
 
+		if ( $this->is_request( 'frontend' ) ) {
+			$this->frontend_includes();
+		}
+
 		$this->theme_support_includes();
 	}
 
@@ -156,6 +172,13 @@ final class EDD_Reviews {
 					break;
 			}
 		}
+	}
+
+	/**
+	 * Include required frontend files.
+	 */
+	public function frontend_includes() {
+		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-frontend-scripts.php';
 	}
 
 	/**
@@ -183,18 +206,6 @@ final class EDD_Reviews {
 				);
 			}
 		);
-	}
-
-	/**
-	 * Define constant if not already set.
-	 *
-	 * @param string      $name  Constant name.
-	 * @param string|bool $value Constant value.
-	 */
-	private function define( $name, $value ) {
-		if ( ! defined( $name ) ) {
-			define( $name, $value );
-		}
 	}
 
 	/**
