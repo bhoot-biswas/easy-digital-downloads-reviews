@@ -186,7 +186,7 @@ final class EDD_Reviews {
 	 * @since 0.1.0
 	 */
 	private function init_hooks() {
-		new EDD_Reviews_Post_Types();
+		EDD_Reviews_Post_Types::init();
 		new EDD_Reviews_Template_Loader();
 		EDD_Reviews_Comments::init();
 		// add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );

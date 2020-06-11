@@ -7,11 +7,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class EDD_Reviews_Post_Types {
 
-	public function __construct() {
-		add_filter( 'edd_download_supports', [ $this, 'edd_download_supports' ] );
+	/**
+	 * Hook in methods.
+	 */
+	public static function init() {
+		add_filter( 'edd_download_supports', array( __CLASS__, 'edd_download_supports' ) );
 	}
 
-	public function edd_download_supports( $supports ) {
+	/**
+	 * Add post type supports.
+	 * @param  [type] $supports [description]
+	 * @return [type]           [description]
+	 */
+	public static function edd_download_supports( $supports ) {
 		$supports[] = 'comments';
 
 		return $supports;
