@@ -141,3 +141,16 @@ function edd_get_download_review_count( $download_id ) {
 function edd_reviews_is_active_theme( $theme ) {
 	return is_array( $theme ) ? in_array( get_template(), $theme, true ) : get_template() === $theme;
 }
+
+/**
+ * Is the site using a default WP theme?
+ *
+ * @return boolean
+ */
+function edd_reviews_is_wp_default_theme_active() {
+	return edd_reviews_is_active_theme(
+		array(
+			'twentytwenty',
+		)
+	);
+}
