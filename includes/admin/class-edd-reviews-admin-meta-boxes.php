@@ -43,7 +43,7 @@ class EDD_Reviews_Admin_Meta_Boxes {
 		// Comments/Reviews.
 		if ( isset( $post ) && ( 'publish' === $post->post_status || 'private' === $post->post_status ) && post_type_supports( 'download', 'comments' ) ) {
 			remove_meta_box( 'commentsdiv', 'product', 'normal' );
-			add_meta_box( 'commentsdiv', __( 'Reviews', 'woocommerce' ), 'post_comment_meta_box', 'download', 'normal' );
+			add_meta_box( 'commentsdiv', __( 'Reviews', 'easy-digital-downloads-reviews' ), 'post_comment_meta_box', 'download', 'normal' );
 		}
 	}
 }

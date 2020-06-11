@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Easy Digital Downloads Reviews 0.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/easy-digital-downloads-reviews\n"
-"POT-Creation-Date: 2020-06-04 20:13:02+00:00\n"
+"POT-Creation-Date: 2020-06-11 11:29:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,6 +25,10 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
+#: includes/admin/class-edd-reviews-admin-meta-boxes.php:46
+msgid "Reviews"
+msgstr ""
+
 #: includes/class-edd-extension-activation.php:49
 msgid "This plugin"
 msgstr ""
@@ -41,11 +45,11 @@ msgstr ""
 msgid "Please rate the download."
 msgstr ""
 
-#: includes/class-edd-reviews.php:58
+#: includes/class-edd-reviews.php:65
 msgid "Cloning is forbidden."
 msgstr ""
 
-#: includes/class-edd-reviews.php:67
+#: includes/class-edd-reviews.php:74
 msgid "Unserializing instances of this class is forbidden."
 msgstr ""
 
@@ -85,70 +89,70 @@ msgid "One review for &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #: templates/single-download-reviews.php:61
-msgid "Comments are closed."
+msgid "Reviews are closed."
 msgstr ""
 
-#: templates/single-download-reviews.php:70
+#: templates/single-download-reviews.php:71
+msgid "Your rating"
+msgstr ""
+
+#: templates/single-download-reviews.php:73
+msgid "Rate&hellip;"
+msgstr ""
+
+#: templates/single-download-reviews.php:74
+msgid "Perfect"
+msgstr ""
+
+#: templates/single-download-reviews.php:75
+msgid "Good"
+msgstr ""
+
+#: templates/single-download-reviews.php:76
+msgid "Average"
+msgstr ""
+
+#: templates/single-download-reviews.php:77
+msgid "Not that bad"
+msgstr ""
+
+#: templates/single-download-reviews.php:78
+msgid "Very poor"
+msgstr ""
+
+#: templates/single-download-reviews.php:81
+msgid "Your review"
+msgstr ""
+
+#: templates/single-download-reviews.php:87
 #. translators: %s is product title
 msgid "Write a Review"
 msgstr ""
 
-#: templates/single-download-reviews.php:70
+#: templates/single-download-reviews.php:87
 msgid "Be the first to review &ldquo;%s&rdquo;"
 msgstr ""
 
-#: templates/single-download-reviews.php:72
+#: templates/single-download-reviews.php:89
 #. translators: %s is product title
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: templates/single-download-reviews.php:74
+#: templates/single-download-reviews.php:90
 msgid "Post Review"
 msgstr ""
 
-#: templates/single-download-reviews.php:82
+#: templates/single-download-reviews.php:96
 msgid "Name"
 msgstr ""
 
-#: templates/single-download-reviews.php:88
+#: templates/single-download-reviews.php:102
 msgid "Email"
 msgstr ""
 
-#: templates/single-download-reviews.php:113
+#: templates/single-download-reviews.php:125
 #. translators: %s opening and closing link tags respectively
 msgid "You must be %1$slogged in%2$s to post a review."
-msgstr ""
-
-#: templates/single-download-reviews.php:116
-msgid "Your rating"
-msgstr ""
-
-#: templates/single-download-reviews.php:117
-msgid "Rate&hellip;"
-msgstr ""
-
-#: templates/single-download-reviews.php:118
-msgid "Perfect"
-msgstr ""
-
-#: templates/single-download-reviews.php:119
-msgid "Good"
-msgstr ""
-
-#: templates/single-download-reviews.php:120
-msgid "Average"
-msgstr ""
-
-#: templates/single-download-reviews.php:121
-msgid "Not that bad"
-msgstr ""
-
-#: templates/single-download-reviews.php:122
-msgid "Very poor"
-msgstr ""
-
-#: templates/single-download-reviews.php:125
-msgid "Your review"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
