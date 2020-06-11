@@ -88,15 +88,35 @@ final class EDD_Reviews {
 	 * Include required core files used in admin and on the frontend.
 	 */
 	private function includes() {
+		// Functions.
 		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-core-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-conditional-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-template-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-user-functions.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/edd-reviews-template-hooks.php';
+
+		// Classes.
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-post-types.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-comments.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-template-loader.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-assets.php';
+
+		$this->theme_support_includes();
+	}
+
+	/**
+	 * Include classes for theme support.
+	 *
+	 * @since 0.1.0
+	 */
+	private function theme_support_includes() {
+		if ( edd_reviews_is_wp_default_theme_active() ) {
+			switch ( get_template() ) {
+				case 'twentytwenty':
+					include_once EDD_REVIEWS_ABSPATH . 'includes/theme-support/class-edd-reviews-twenty-twenty.php';
+					break;
+			}
+		}
 	}
 
 	/**

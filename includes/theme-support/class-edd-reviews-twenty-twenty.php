@@ -43,3 +43,5 @@ class EDD_Reviews_Twenty_Twenty {
 	}
 
 }
+
+EDD_Reviews_Twenty_Twenty::init();
