@@ -10,9 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class EDD_Reviews_Template_Loader {
 
-	public function __construct() {
-		add_filter( 'comments_template', array( $this, 'comments_template_loader' ) );
-		add_filter( 'edd_template_paths', array( $this, 'template_paths' ) );
+	/**
+	 * Hook in methods.
+	 */
+	public static function init() {
+		add_filter( 'edd_template_paths', array( __CLASS__, 'template_paths' ) );
+		add_filter( 'comments_template', array( __CLASS__, 'comments_template_loader' ) );
 	}
 
 	/**
@@ -20,7 +23,7 @@ class EDD_Reviews_Template_Loader {
 	 * @param  [type] $file_paths [description]
 	 * @return [type]             [description]
 	 */
-	public function template_paths( $file_paths ) {
+	public static function template_paths( $file_paths ) {
 		$file_paths[50] = trailingslashit( edd_reviews()->plugin_path() ) . 'templates/';
 		return $file_paths;
 	}
@@ -36,23 +39,10 @@ class EDD_Reviews_Template_Loader {
 			return $template;
 		}
 
-		$template_dir = edd_get_theme_template_dir_name();
-
-		$check_dirs = array(
-			trailingslashit( get_stylesheet_directory() ) . $template_dir,
-			trailingslashit( get_template_directory() ) . $template_dir,
-			trailingslashit( get_stylesheet_directory() ),
-			trailingslashit( get_template_directory() ),
-			trailingslashit( edd_reviews()->plugin_path() ) . 'templates/',
-		);
-
-		if ( EDD_REVIEWS_TEMPLATE_DEBUG_MODE ) {
-			$check_dirs = array( array_pop( $check_dirs ) );
-		}
-
-		foreach ( $check_dirs as $dir ) {
-			if ( file_exists( trailingslashit( $dir ) . 'single-download-reviews.php' ) ) {
-				return trailingslashit( $dir ) . 'single-download-reviews.php';
+		// try locating this template file by looping through the template paths
+		foreach ( edd_get_theme_template_paths() as $template_path ) {
+			if ( file_exists( trailingslashit( $template_path ) . 'single-download-reviews.php' ) ) {
+				return trailingslashit( $template_path ) . 'single-download-reviews.php';
 			}
 		}
 	}
