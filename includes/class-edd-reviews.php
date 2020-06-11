@@ -15,6 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class EDD_Reviews {
 
 	/**
+	 * EDD_Reviews version.
+	 *
+	 * @var string
+	 */
+	public $version = '0.1.0';
+
+	/**
 	 * The single instance of the class.
 	 *
 	 * @var EDD_Reviews
@@ -73,6 +80,7 @@ final class EDD_Reviews {
 	private function define_constants() {
 		$this->define( 'EDD_REVIEWS_ABSPATH', dirname( EDD_REVIEWS_PLUGIN_FILE ) . '/' );
 		$this->define( 'EDD_REVIEWS_PLUGIN_BASENAME', plugin_basename( EDD_REVIEWS_PLUGIN_FILE ) );
+		$this->define( 'EDD_REVIEWS_VERSION', $this->version );
 		$this->define( 'EDD_REVIEWS_TEMPLATE_DEBUG_MODE', false );
 	}
 
