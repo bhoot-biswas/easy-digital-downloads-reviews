@@ -150,7 +150,6 @@ final class EDD_Reviews {
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-post-types.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-comments.php';
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-template-loader.php';
-		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-assets.php';
 
 		if ( $this->is_request( 'frontend' ) ) {
 			$this->frontend_includes();

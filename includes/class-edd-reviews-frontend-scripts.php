@@ -147,9 +147,33 @@ class EDD_Reviews_Frontend_Scripts {
 	}
 
 	/**
+	 * Register all WC scripts.
+	 */
+	private static function register_scripts() {
+		$asset_file       = include( edd_reviews()->plugin_path() . '/build/index.asset.php' );
+		$register_scripts = array(
+			'edd-reviews' => array(
+				'src'     => self::get_asset_url( 'build/index.js' ),
+				'deps'    => $asset_file['dependencies'],
+				'version' => $asset_file['version'],
+			),
+		);
+
+		foreach ( $register_scripts as $name => $props ) {
+			self::register_script( $name, $props['src'], $props['deps'], $props['version'] );
+		}
+	}
+
+	/**
 	 * Register/queue frontend scripts.
 	 */
 	public static function enqueue_scripts() {
+		// Register scripts.
+		self::register_scripts();
+
+		// Global frontend scripts.
+		self::enqueue_script( 'edd-reviews' );
+
 		// CSS Styles.
 		$enqueue_styles = self::get_styles();
 		if ( $enqueue_styles ) {
