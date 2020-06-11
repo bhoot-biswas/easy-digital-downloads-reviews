@@ -21,7 +21,17 @@ class EDD_Reviews_Admin_Meta_Boxes {
 	 * Constructor.
 	 */
 	public function __construct() {
+		add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'rename_meta_boxes' ), 20 );
+	}
+
+	/**
+	 * Remove bloat.
+	 */
+	public function remove_meta_boxes() {
+		remove_meta_box( 'commentsdiv', 'download', 'normal' );
+		remove_meta_box( 'commentstatusdiv', 'download', 'side' );
+		remove_meta_box( 'commentstatusdiv', 'download', 'normal' );
 	}
 
 	/**
