@@ -32,7 +32,7 @@ class EDD_Reviews_Twenty_Twenty {
 	 */
 	public static function enqueue_styles( $styles ) {
 		$styles['edd-reviews-general'] = array(
-			'src'     => str_replace( array( 'http:', 'https:' ), '', edd_reviews()->plugin_url() ) . '/build/twenty-twenty.css',
+			'src'     => str_replace( array( 'http:', 'https:' ), '', edd_reviews()->plugin_url() ) . '/build/index.css',
 			'deps'    => '',
 			'version' => EDD_REVIEWS_VERSION,
 			'media'   => 'all',
