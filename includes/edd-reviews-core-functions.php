@@ -130,3 +130,14 @@ function edd_set_download_review_count( $download_id, $count ) {
 function edd_get_download_review_count( $download_id ) {
 	return get_post_meta( $download_id, '_review_count', true );
 }
+
+/**
+ * See if theme/s is activate or not.
+ *
+ * @since 0.1.0
+ * @param string|array $theme Theme name or array of theme names to check.
+ * @return boolean
+ */
+function edd_reviews_is_active_theme( $theme ) {
+	return is_array( $theme ) ? in_array( get_template(), $theme, true ) : get_template() === $theme;
+}
