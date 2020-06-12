@@ -49,20 +49,20 @@ class EDD_Reviews_Admin_Settings {
 			),
 			'enable_reviews'                      => array(
 				'id'   => 'enable_reviews',
-				'name' => __( 'Download Reviews', 'edd-reviews' ),
+				'name' => __( 'Enable Reviews', 'edd-reviews' ),
 				'desc' => __( 'Enable download reviews.', 'edd-reviews' ),
-				'type' => 'checkbox',
-			),
-			'review_rating_verification_label'    => array(
-				'id'   => 'review_rating_verification_label',
-				'name' => __( 'Show Verification Label', 'edd-reviews' ),
-				'desc' => __( 'Show "verified owner" label on customer reviews.', 'edd-reviews' ),
 				'type' => 'checkbox',
 			),
 			'review_rating_verification_required' => array(
 				'id'   => 'review_rating_verification_required',
-				'name' => __( 'Review Rating Verification Required', 'edd-reviews' ),
+				'name' => __( 'Enable Verification', 'edd-reviews' ),
 				'desc' => __( 'Reviews can only be left by "verified owners".', 'edd-reviews' ),
+				'type' => 'checkbox',
+			),
+			'review_rating_verification_label'    => array(
+				'id'   => 'review_rating_verification_label',
+				'name' => __( 'Verification Label', 'edd-reviews' ),
+				'desc' => __( 'Show "verified owner" label on customer reviews.', 'edd-reviews' ),
 				'type' => 'checkbox',
 			),
 			'download_ratings'                    => array(
@@ -73,12 +73,12 @@ class EDD_Reviews_Admin_Settings {
 			'enable_review_rating'                => array(
 				'id'   => 'enable_review_rating',
 				'name' => __( 'Enable Ratings', 'edd-reviews' ),
-				'desc' => __( 'Enable star rating on reviews.', 'edd-reviews' ),
+				'desc' => __( 'Enable star ratings on reviews.', 'edd-reviews' ),
 				'type' => 'checkbox',
 			),
 			'review_rating_required'              => array(
-				'name' => __( 'Review Rating Required', 'edd-reviews' ),
 				'id'   => 'review_rating_required',
+				'name' => __( 'Ratings Required?', 'edd-reviews' ),
 				'desc' => __( 'Star ratings should be required, not optional.', 'edd-reviews' ),
 				'type' => 'checkbox',
 			),
