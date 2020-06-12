@@ -19,28 +19,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 global $comment;
-$verified = edd_reviews_review_is_from_verified_owner( $comment->comment_ID );
 
-if ( '0' === $comment->comment_approved ) { ?>
-
+if ( '0' === $comment->comment_approved ) :
+	?>
 	<p class="meta">
 		<em class="edd-reviews-review__awaiting-approval">
 			<?php esc_html_e( 'Your review is awaiting approval', 'easy-digital-downloads-reviews' ); ?>
 		</em>
 	</p>
-
-<?php } else { ?>
-
+<?php else : ?>
 	<p class="meta">
 		<strong class="edd-reviews-review__author"><?php comment_author(); ?> </strong>
+
 		<?php
-		if ( 'yes' === get_option( 'edd_reviews_review_rating_verification_label' ) && $verified ) {
+		$verified = edd_reviews_review_is_from_verified_owner( $comment->comment_ID );
+		if ( edd_get_option( 'review_rating_verification_label', false ) && $verified ) {
 			echo '<em class="edd-reviews-review__verified verified">(' . esc_attr__( 'verified owner', 'easy-digital-downloads-reviews' ) . ')</em> ';
 		}
-
 		?>
+
 		<span class="edd-reviews-review__dash">&ndash;</span> <time class="edd-reviews-review__published-date" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( get_option( 'date_format' ) ) ); ?></time>
 	</p>
-
-	<?php
-}
+<?php endif; ?>
