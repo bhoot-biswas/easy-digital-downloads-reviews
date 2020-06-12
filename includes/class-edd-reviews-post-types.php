@@ -20,7 +20,9 @@ class EDD_Reviews_Post_Types {
 	 * @return [type]           [description]
 	 */
 	public static function edd_download_supports( $supports ) {
-		$supports[] = 'comments';
+		if ( edd_get_option( 'enable_reviews', false ) ) {
+			$supports[] = 'comments';
+		}
 
 		return $supports;
 	}
