@@ -31,7 +31,7 @@ class EDD_Reviews_Admin_Settings {
 	 * @return [type]           [description]
 	 */
 	public function register_settings_sections( $sections ) {
-		$sections['reviews'] = __( 'Reviews', 'easy-digital-downloads' );
+		$sections['reviews'] = __( 'Reviews', 'edd-reviews' );
 		return $sections;
 	}
 
@@ -42,10 +42,44 @@ class EDD_Reviews_Admin_Settings {
 	 */
 	public function register_settings( $settings ) {
 		$settings['reviews'] = array(
-			'enable_reviews' => array(
+			'download_reviews'                    => array(
+				'id'   => 'download_reviews',
+				'name' => '<strong>' . __( 'Download Reviews', 'easy-digital-downloads' ) . '</strong>',
+				'type' => 'header',
+			),
+			'enable_reviews'                      => array(
 				'id'   => 'enable_reviews',
-				'name' => __( 'Enable download reviews', 'easy-digital-downloads' ),
-				'desc' => __( 'Check this box to allow customers to review the products offered on your website.', 'easy-digital-downloads' ),
+				'name' => __( 'Download Reviews', 'edd-reviews' ),
+				'desc' => __( 'Enable download reviews.', 'edd-reviews' ),
+				'type' => 'checkbox',
+			),
+			'review_rating_verification_label'    => array(
+				'id'   => 'review_rating_verification_label',
+				'name' => __( 'Show Verification Label', 'edd-reviews' ),
+				'desc' => __( 'Show "verified owner" label on customer reviews.', 'edd-reviews' ),
+				'type' => 'checkbox',
+			),
+			'review_rating_verification_required' => array(
+				'id'   => 'review_rating_verification_required',
+				'name' => __( 'Review Rating Verification Required', 'edd-reviews' ),
+				'desc' => __( 'Reviews can only be left by "verified owners".', 'edd-reviews' ),
+				'type' => 'checkbox',
+			),
+			'download_ratings'                    => array(
+				'id'   => 'download_ratings',
+				'name' => '<strong>' . __( 'Download Ratings', 'easy-digital-downloads' ) . '</strong>',
+				'type' => 'header',
+			),
+			'enable_review_rating'                => array(
+				'id'   => 'enable_review_rating',
+				'name' => __( 'Enable Ratings', 'edd-reviews' ),
+				'desc' => __( 'Enable star rating on reviews.', 'edd-reviews' ),
+				'type' => 'checkbox',
+			),
+			'review_rating_required'              => array(
+				'name' => __( 'Review Rating Required', 'edd-reviews' ),
+				'id'   => 'review_rating_required',
+				'desc' => __( 'Star ratings should be required, not optional.', 'edd-reviews' ),
 				'type' => 'checkbox',
 			),
 		);
