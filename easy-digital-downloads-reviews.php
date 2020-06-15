@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:     Reviews for Easy Digital Downloads
- * Plugin URI:      PLUGIN SITE HERE
+ * Plugin URI:      https://bengal-studio.com/plugins/reviews-for-easy-digital-downloads
  * Description:     PLUGIN DESCRIPTION HERE
- * Author:          YOUR NAME HERE
- * Author URI:      YOUR SITE HERE
+ * Author:          Bengal Studio
+ * Author URI:      https://bengal-studio.com
  * Text Domain:     easy-digital-downloads-reviews
  * Domain Path:     /languages
  * Version:         0.1.0
