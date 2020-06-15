@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     Easy Digital Downloads Reviews
+ * Plugin Name:     Reviews for Easy Digital Downloads
  * Plugin URI:      PLUGIN SITE HERE
  * Description:     PLUGIN DESCRIPTION HERE
  * Author:          YOUR NAME HERE
