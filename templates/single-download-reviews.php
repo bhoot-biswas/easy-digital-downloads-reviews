@@ -77,21 +77,7 @@ if ( post_password_required() ) {
 					$commenter     = wp_get_current_commenter();
 					$comments_args = array(
 						'fields'         => array(),
-						'comment_field'  => '<div class="comment-form-rating">
-							<label for="rating">' . esc_html__( 'Your rating', 'easy-digital-downloads-reviews' ) . '</label>
-							<select name="rating" id="rating" required>
-						        <option value="">' . esc_html__( 'Rate&hellip;', 'easy-digital-downloads-reviews' ) . '</option>
-						        <option value="5">' . esc_html__( 'Perfect', 'easy-digital-downloads-reviews' ) . '</option>
-						        <option value="4">' . esc_html__( 'Good', 'easy-digital-downloads-reviews' ) . '</option>
-						        <option value="3">' . esc_html__( 'Average', 'easy-digital-downloads-reviews' ) . '</option>
-						        <option value="2">' . esc_html__( 'Not that bad', 'easy-digital-downloads-reviews' ) . '</option>
-						        <option value="1">' . esc_html__( 'Very poor', 'easy-digital-downloads-reviews' ) . '</option>
-					    	</select>
-							<p class="comment-form-comment">
-								<label for="comment">' . esc_html__( 'Your review', 'easy-digital-downloads-reviews' ) . '&nbsp;<span class="required">*</span></label>
-								<textarea id="comment" name="comment" cols="45" rows="8" required></textarea>
-							</p>
-						</div>',
+						'comment_field'  => '',
 						'logged_in_as'   => '',
 						/* translators: %s is product title */
 						'title_reply'    => have_comments() ? esc_html__( 'Write a Review', 'easy-digital-downloads-reviews' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'easy-digital-downloads-reviews' ), get_the_title() ),
@@ -134,6 +120,25 @@ if ( post_password_required() ) {
 						/* translators: %s opening and closing link tags respectively */
 						$comments_args['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'easy-digital-downloads-reviews' ), '<a href="' . esc_url( get_permalink( $purchase_history ) ) . '">', '</a>' ) . '</p>';
 					}
+
+					if ( edd_reviews_review_ratings_enabled() ) {
+						$comments_args['comment_field'] = '<div class="comment-form-rating">
+							<label for="rating">' . esc_html__( 'Your rating', 'easy-digital-downloads-reviews' ) . '</label>
+							<select name="rating" id="rating" required>
+								<option value="">' . esc_html__( 'Rate&hellip;', 'easy-digital-downloads-reviews' ) . '</option>
+								<option value="5">' . esc_html__( 'Perfect', 'easy-digital-downloads-reviews' ) . '</option>
+								<option value="4">' . esc_html__( 'Good', 'easy-digital-downloads-reviews' ) . '</option>
+								<option value="3">' . esc_html__( 'Average', 'easy-digital-downloads-reviews' ) . '</option>
+								<option value="2">' . esc_html__( 'Not that bad', 'easy-digital-downloads-reviews' ) . '</option>
+								<option value="1">' . esc_html__( 'Very poor', 'easy-digital-downloads-reviews' ) . '</option>
+							</select>
+						</div>';
+					}
+
+					$comments_args['comment_field'] .= '<p class="comment-form-comment">
+						<label for="comment">' . esc_html__( 'Your review', 'easy-digital-downloads-reviews' ) . '&nbsp;<span class="required">*</span></label>
+						<textarea id="comment" name="comment" cols="45" rows="8" required></textarea>
+					</p>';
 
 					comment_form( apply_filters( 'edd_reviews_product_review_comment_form_args', $comments_args ) );
 					?>

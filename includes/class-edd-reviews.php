@@ -193,7 +193,7 @@ final class EDD_Reviews {
 		EDD_Reviews_Post_Types::init();
 		EDD_Reviews_Template_Loader::init();
 		EDD_Reviews_Comments::init();
-		add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
+		// add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
 
 		add_action(
 			'wp_ajax_tests',
