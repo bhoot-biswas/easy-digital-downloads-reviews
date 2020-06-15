@@ -193,17 +193,14 @@ final class EDD_Reviews {
 		EDD_Reviews_Post_Types::init();
 		EDD_Reviews_Template_Loader::init();
 		EDD_Reviews_Comments::init();
-		// add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
+		add_action( 'edd_after_download_content', 'edd_reviews_append_comments' );
 
 		add_action(
 			'wp_ajax_tests',
 			function() {
-				$download = edd_get_download( 196 );
 				wp_send_json(
 					[
-						EDD_Reviews_Comments::get_average_rating_for_download( $download ),
-						EDD_Reviews_Comments::get_rating_counts_for_download( $download ),
-						EDD_Reviews_Comments::get_review_count_for_download( $download ),
+						edd_reviews_reviews_enabled(),
 					]
 				);
 			}

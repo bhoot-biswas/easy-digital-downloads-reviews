@@ -36,6 +36,9 @@ class EDD_Reviews_Comments {
 
 		// Set comment type.
 		add_action( 'preprocess_comment', array( __CLASS__, 'update_comment_type' ), 1 );
+
+		// Update comment status.
+		add_action( 'wp_insert_post', array( __CLASS__, 'update_comment_status' ), 10, 3 );
 	}
 
 	/**
@@ -253,6 +256,24 @@ class EDD_Reviews_Comments {
 		}
 
 		return $comment_data;
+	}
+
+	/**
+	 * [update_comment_status description]
+	 * @param  [type] $post_id [description]
+	 * @param  [type] $post    [description]
+	 * @param  [type] $update  [description]
+	 * @return [type]          [description]
+	 */
+	public static function update_comment_status( $post_id, $post, $update ) {
+		global $wpdb;
+
+		$comment_status = edd_reviews_reviews_enabled() ? 'open' : 'closed';
+		if ( $comment_status === $post->comment_status ) {
+			return;
+		}
+
+		$wpdb->update( $wpdb->posts, array( 'comment_status' => $comment_status ), array( 'ID' => $post_id ) );
 	}
 
 }

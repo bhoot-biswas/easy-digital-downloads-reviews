@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 function edd_reviews_append_comments( $download_id ) {
+	print_r(get_post( $download_id ));
 	// If comments are open or we have at least one comment, load up the comment template.
 	if ( comments_open() || get_comments_number() ) :
 		comments_template();
