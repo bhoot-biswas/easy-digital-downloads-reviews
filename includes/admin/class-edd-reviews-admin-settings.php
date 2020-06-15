@@ -31,7 +31,7 @@ class EDD_Reviews_Admin_Settings {
 	 * @return [type]           [description]
 	 */
 	public function register_settings_sections( $sections ) {
-		$sections['reviews'] = __( 'Reviews', 'edd-reviews' );
+		$sections['reviews'] = __( 'Reviews', 'easy-digital-downloads-reviews' );
 		return $sections;
 	}
 
@@ -44,42 +44,42 @@ class EDD_Reviews_Admin_Settings {
 		$settings['reviews'] = array(
 			'download_reviews'                    => array(
 				'id'   => 'download_reviews',
-				'name' => '<strong>' . __( 'Download Reviews', 'easy-digital-downloads' ) . '</strong>',
+				'name' => '<strong>' . __( 'Download Reviews', 'easy-digital-downloads-reviews' ) . '</strong>',
 				'type' => 'header',
 			),
 			'enable_reviews'                      => array(
 				'id'   => 'enable_reviews',
-				'name' => __( 'Enable Reviews', 'edd-reviews' ),
-				'desc' => __( 'Enable download reviews.', 'edd-reviews' ),
+				'name' => __( 'Enable Reviews', 'easy-digital-downloads-reviews' ),
+				'desc' => __( 'Enable download reviews.', 'easy-digital-downloads-reviews' ),
 				'type' => 'checkbox',
 			),
 			'review_rating_verification_required' => array(
 				'id'   => 'review_rating_verification_required',
-				'name' => __( 'Enable Verification', 'edd-reviews' ),
-				'desc' => __( 'Reviews can only be left by "verified owners".', 'edd-reviews' ),
+				'name' => __( 'Enable Verification', 'easy-digital-downloads-reviews' ),
+				'desc' => __( 'Reviews can only be left by "verified owners".', 'easy-digital-downloads-reviews' ),
 				'type' => 'checkbox',
 			),
 			'review_rating_verification_label'    => array(
 				'id'   => 'review_rating_verification_label',
-				'name' => __( 'Verification Label', 'edd-reviews' ),
-				'desc' => __( 'Show "verified owner" label on customer reviews.', 'edd-reviews' ),
+				'name' => __( 'Verification Label', 'easy-digital-downloads-reviews' ),
+				'desc' => __( 'Show "verified owner" label on customer reviews.', 'easy-digital-downloads-reviews' ),
 				'type' => 'checkbox',
 			),
 			'download_ratings'                    => array(
 				'id'   => 'download_ratings',
-				'name' => '<strong>' . __( 'Download Ratings', 'easy-digital-downloads' ) . '</strong>',
+				'name' => '<strong>' . __( 'Download Ratings', 'easy-digital-downloads-reviews' ) . '</strong>',
 				'type' => 'header',
 			),
 			'enable_review_rating'                => array(
 				'id'   => 'enable_review_rating',
-				'name' => __( 'Enable Ratings', 'edd-reviews' ),
-				'desc' => __( 'Enable star ratings on reviews.', 'edd-reviews' ),
+				'name' => __( 'Enable Ratings', 'easy-digital-downloads-reviews' ),
+				'desc' => __( 'Enable star ratings on reviews.', 'easy-digital-downloads-reviews' ),
 				'type' => 'checkbox',
 			),
 			'review_rating_required'              => array(
 				'id'   => 'review_rating_required',
-				'name' => __( 'Ratings Required?', 'edd-reviews' ),
-				'desc' => __( 'Star ratings should be required, not optional.', 'edd-reviews' ),
+				'name' => __( 'Ratings Required?', 'easy-digital-downloads-reviews' ),
+				'desc' => __( 'Star ratings should be required, not optional.', 'easy-digital-downloads-reviews' ),
 				'type' => 'checkbox',
 			),
 		);
