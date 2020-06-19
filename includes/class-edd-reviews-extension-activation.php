@@ -2,8 +2,8 @@
 /**
  * Activation handler
  *
- * @package     EDD\ActivationHandler
- * @since       1.0.0
+ * @package EDD_Reviews\ActivationHandler
+ * @version 0.1.0
  */
 
 
@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * EDD Extension Activation Handler Class
  *
- * @since       1.0.0
+ * @since       0.1.0
  */
-class EDD_Extension_Activation {
+class EDD_Reviews_Extension_Activation {
 
 	public $plugin_name, $plugin_path, $plugin_file, $has_edd;
 
@@ -26,7 +26,7 @@ class EDD_Extension_Activation {
 	 * Setup the activation class
 	 *
 	 * @access      public
-	 * @since       1.0.0
+	 * @since       0.1.0
 	 * @return      void
 	 */
 	public function __construct( $plugin_path, $plugin_file ) {
@@ -44,14 +44,14 @@ class EDD_Extension_Activation {
 
 		// Set plugin name
 		if ( isset( $plugins[ $this->plugin_path . '/' . $this->plugin_file ]['Name'] ) ) {
-			$this->plugin_name = str_replace( 'Easy Digital Downloads - ', '', $plugins[ $this->plugin_path . '/' . $this->plugin_file ]['Name'] );
+			$this->plugin_name = str_replace( ' for Easy Digital Downloads', '', $plugins[ $this->plugin_path . '/' . $this->plugin_file ]['Name'] );
 		} else {
 			$this->plugin_name = __( 'This plugin', 'easy-digital-downloads-reviews' );
 		}
 
 		// Is EDD installed?
 		foreach ( $plugins as $plugin_path => $plugin ) {
-			if ( $plugin['Name'] == 'Easy Digital Downloads' ) {
+			if ( 'Easy Digital Downloads' === $plugin['Name'] ) {
 				$this->has_edd = true;
 				break;
 			}
@@ -63,7 +63,7 @@ class EDD_Extension_Activation {
 	 * Process plugin deactivation
 	 *
 	 * @access      public
-	 * @since       1.0.0
+	 * @since       0.1.0
 	 * @return      void
 	 */
 	public function run() {
@@ -75,7 +75,7 @@ class EDD_Extension_Activation {
 	 * Display notice if EDD isn't installed
 	 *
 	 * @access      public
-	 * @since       1.0.0
+	 * @since       0.1.0
 	 * @return      string The notice to display
 	 */
 	public function missing_edd_notice() {
