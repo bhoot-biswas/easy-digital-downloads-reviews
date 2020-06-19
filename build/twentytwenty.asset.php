@@ -1,0 +1,1 @@
+<?php return array('dependencies' => array('wp-polyfill'), 'version' => 'c4994c110cb2c23b27097874f20cc7b0');

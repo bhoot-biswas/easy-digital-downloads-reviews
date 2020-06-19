@@ -8,18 +8,16 @@ import "./scss/index.scss";
 		$("#rating")
 			.hide()
 			.before(
-				'<p class="stars">\
-					<span>\
-						<a class="star-1" href="#">1</a>\
-						<a class="star-2" href="#">2</a>\
-						<a class="star-3" href="#">3</a>\
-						<a class="star-4" href="#">4</a>\
-						<a class="star-5" href="#">5</a>\
-					</span>\
-				</p>'
+				'<span class="stars">\
+					<a class="star-1" href="#">1</a>\
+					<a class="star-2" href="#">2</a>\
+					<a class="star-3" href="#">3</a>\
+					<a class="star-4" href="#">4</a>\
+					<a class="star-5" href="#">5</a>\
+				</span>'
 			);
 
-		$("body").on("click", "#respond p.stars a", function() {
+		$("body").on("click", "#respond .stars a", function() {
 			var $star = $(this),
 				$rating = $(this)
 					.closest("#respond")
