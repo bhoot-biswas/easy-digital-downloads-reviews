@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Reviews for Easy Digital Downloads
  * Plugin URI:      https://bengal-studio.com/plugins/reviews-for-easy-digital-downloads
- * Description:     PLUGIN DESCRIPTION HERE
+ * Description:     Reviews for Easy Digital Downloads allows your customers to submit reviews with a 1-5 star rating on your website and helps to increase sales for your business.
  * Author:          Bengal Studio
  * Author URI:      https://bengal-studio.com
  * Text Domain:     easy-digital-downloads-reviews
