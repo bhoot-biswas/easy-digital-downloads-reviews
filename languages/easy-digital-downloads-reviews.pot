@@ -1,11 +1,11 @@
-# Copyright (C) 2020 YOUR NAME HERE
+# Copyright (C) 2020 Bengal Studio
 # This file is distributed under the same license as the Reviews for Easy Digital Downloads package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Reviews for Easy Digital Downloads 0.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/easy-digital-downloads-reviews\n"
-"POT-Creation-Date: 2020-06-15 17:28:26+00:00\n"
+"POT-Creation-Date: 2020-06-19 07:43:25+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -78,20 +78,20 @@ msgstr ""
 msgid "Star ratings should be required, not optional."
 msgstr ""
 
-#: includes/class-edd-extension-activation.php:49
+#: includes/class-edd-reviews-comments.php:68
+msgid "Please rate the download."
+msgstr ""
+
+#: includes/class-edd-reviews-extension-activation.php:49
 msgid "This plugin"
 msgstr ""
 
-#: includes/class-edd-extension-activation.php:83
+#: includes/class-edd-reviews-extension-activation.php:83
 msgid " requires %1$sEasy Digital Downloads%2$s. Please activate it to continue."
 msgstr ""
 
-#: includes/class-edd-extension-activation.php:85
+#: includes/class-edd-reviews-extension-activation.php:85
 msgid " requires %1$sEasy Digital Downloads%2$s. Please install it to continue."
-msgstr ""
-
-#: includes/class-edd-reviews-comments.php:68
-msgid "Please rate the download."
 msgstr ""
 
 #: includes/class-edd-reviews.php:65
@@ -111,13 +111,13 @@ msgstr ""
 msgid "action_args should not be overwritten when calling edd_reviews_get_template."
 msgstr ""
 
-#: includes/edd-reviews-template-functions.php:100
-#: includes/edd-reviews-template-functions.php:123
+#: includes/edd-reviews-template-functions.php:103
+#: includes/edd-reviews-template-functions.php:128
 #. translators: %s: rating
 msgid "Rated %s out of 5"
 msgstr ""
 
-#: includes/edd-reviews-template-functions.php:120
+#: includes/edd-reviews-template-functions.php:125
 #. translators: 1: rating 2: rating count
 msgid "Rated %1$s out of 5 based on %2$s customer rating"
 msgid_plural "Rated %1$s out of 5 based on %2$s customer ratings"
@@ -213,19 +213,22 @@ msgid "Reviews for Easy Digital Downloads"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "PLUGIN SITE HERE"
+msgid "https://bengal-studio.com/plugins/reviews-for-easy-digital-downloads"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "PLUGIN DESCRIPTION HERE"
+msgid ""
+"Reviews for Easy Digital Downloads allows your customers to submit reviews "
+"with a 1-5 star rating on your website and helps to increase sales for your "
+"business."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "YOUR NAME HERE"
+msgid "Bengal Studio"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "YOUR SITE HERE"
+msgid "https://bengal-studio.com"
 msgstr ""
 
 #: templates/single-download-reviews.php:46
