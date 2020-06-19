@@ -17,21 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 class EDD_Reviews_Frontend_Scripts {
 
 	/**
-	 * Contains an array of script handles registered by WC.
+	 * Contains an array of script handles registered by EDD_Reviews.
 	 *
 	 * @var array
 	 */
 	private static $scripts = array();
 
 	/**
-	 * Contains an array of script handles registered by WC.
+	 * Contains an array of script handles registered by EDD_Reviews.
 	 *
 	 * @var array
 	 */
 	private static $styles = array();
 
 	/**
-	 * Contains an array of script handles localized by WC.
+	 * Contains an array of script handles localized by EDD_Reviews.
 	 *
 	 * @var array
 	 */
@@ -147,7 +147,7 @@ class EDD_Reviews_Frontend_Scripts {
 	}
 
 	/**
-	 * Register all WC scripts.
+	 * Register all EDD_Reviews scripts.
 	 */
 	private static function register_scripts() {
 		$asset_file       = include( edd_reviews()->plugin_path() . '/build/index.asset.php' );
@@ -188,7 +188,7 @@ class EDD_Reviews_Frontend_Scripts {
 	}
 
 	/**
-	 * Localize a WC script once.
+	 * Localize a EDD_Reviews script once.
 	 *
 	 * @since 2.3.0 this needs less wp_script_is() calls due to https://core.trac.wordpress.org/ticket/28404 being added in WP 4.0.
 	 * @param string $handle Script handle the data will be attached to.
