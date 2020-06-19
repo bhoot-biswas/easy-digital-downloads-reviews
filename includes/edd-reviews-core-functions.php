@@ -64,7 +64,7 @@ function edd_reviews_get_template( $template_name, $args = array() ) {
  *
  * @param array $counts Download rating counts.
  */
-function edd_set_download_rating_counts( $download_id, $counts ) {
+function edd_reviews_set_download_rating_counts( $download_id, $counts ) {
 	update_post_meta( $download_id, '_rating_counts', array_filter( array_map( 'absint', (array) $counts ) ) );
 }
 
@@ -73,7 +73,7 @@ function edd_set_download_rating_counts( $download_id, $counts ) {
  * @param  [type] $download_id [description]
  * @return [type]              [description]
  */
-function edd_get_download_rating_counts( $download_id ) {
+function edd_reviews_get_download_rating_counts( $download_id ) {
 	return get_post_meta( $download_id, '_rating_counts', true );
 }
 
@@ -83,8 +83,8 @@ function edd_get_download_rating_counts( $download_id ) {
  * @param  int $value Optional. Rating value to get the count for. By default returns the count of all rating values.
  * @return int
  */
-function edd_get_rating_count( $download_id, $value = null ) {
-	$counts = edd_get_download_rating_counts( $download_id );
+function edd_reviews_get_rating_count( $download_id, $value = null ) {
+	$counts = edd_reviews_get_download_rating_counts( $download_id );
 
 	if ( is_null( $value ) ) {
 		return array_sum( $counts );
@@ -100,7 +100,7 @@ function edd_get_rating_count( $download_id, $value = null ) {
  *
  * @param float $average Download average rating.
  */
-function edd_set_download_average_rating( $download_id, $average ) {
+function edd_reviews_set_download_average_rating( $download_id, $average ) {
 	update_post_meta( $download_id, '_average_rating', edd_format_amount( $average ) );
 }
 
@@ -109,7 +109,7 @@ function edd_set_download_average_rating( $download_id, $average ) {
  * @param  [type] $download_id [description]
  * @return [type]              [description]
  */
-function edd_get_download_average_rating( $download_id ) {
+function edd_reviews_get_download_average_rating( $download_id ) {
 	return get_post_meta( $download_id, '_average_rating', true );
 }
 
@@ -118,7 +118,7 @@ function edd_get_download_average_rating( $download_id ) {
  *
  * @param int $count Download review count.
  */
-function edd_set_download_review_count( $download_id, $count ) {
+function edd_reviews_set_download_review_count( $download_id, $count ) {
 	update_post_meta( $download_id, '_review_count', absint( $count ) );
 }
 
@@ -127,7 +127,7 @@ function edd_set_download_review_count( $download_id, $count ) {
  * @param  [type] $download_id [description]
  * @return [type]              [description]
  */
-function edd_get_download_review_count( $download_id ) {
+function edd_reviews_get_download_review_count( $download_id ) {
 	return get_post_meta( $download_id, '_review_count', true );
 }
 

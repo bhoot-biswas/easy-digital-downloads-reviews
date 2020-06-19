@@ -119,9 +119,9 @@ class EDD_Reviews_Comments {
 		}
 
 		$download = edd_get_download( $post_id );
-		edd_set_download_review_count( $download->get_ID(), self::get_review_count_for_download( $download ) );
-		edd_set_download_rating_counts( $download->get_ID(), self::get_rating_counts_for_download( $download ) );
-		edd_set_download_average_rating( $download->get_ID(), self::get_average_rating_for_download( $download ) );
+		edd_reviews_set_download_review_count( $download->get_ID(), self::get_review_count_for_download( $download ) );
+		edd_reviews_set_download_rating_counts( $download->get_ID(), self::get_rating_counts_for_download( $download ) );
+		edd_reviews_set_download_average_rating( $download->get_ID(), self::get_average_rating_for_download( $download ) );
 	}
 
 	/**
@@ -192,7 +192,7 @@ class EDD_Reviews_Comments {
 	public static function get_average_rating_for_download( &$download ) {
 		global $wpdb;
 
-		$count = edd_get_rating_count( $download->get_ID() );
+		$count = edd_reviews_get_rating_count( $download->get_ID() );
 
 		if ( $count ) {
 			$ratings = $wpdb->get_var(
