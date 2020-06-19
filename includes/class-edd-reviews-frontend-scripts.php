@@ -168,6 +168,11 @@ class EDD_Reviews_Frontend_Scripts {
 	 * Register/queue frontend scripts.
 	 */
 	public static function enqueue_scripts() {
+		// Exit early.
+		if ( ! is_singular( 'download' ) ) {
+			return;
+		}
+
 		// Register scripts.
 		self::register_scripts();
 
