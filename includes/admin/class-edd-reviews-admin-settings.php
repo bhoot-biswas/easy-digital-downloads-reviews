@@ -88,5 +88,3 @@ class EDD_Reviews_Admin_Settings {
 	}
 
 }
-
-new EDD_Reviews_Admin_Settings();

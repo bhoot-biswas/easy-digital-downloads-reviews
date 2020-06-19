@@ -47,5 +47,3 @@ class EDD_Reviews_Admin_Meta_Boxes {
 		}
 	}
 }
-
-new EDD_Reviews_Admin_Meta_Boxes();

@@ -30,7 +30,8 @@ class EDD_Reviews_Admin {
 	public function includes() {
 		include_once dirname( __FILE__ ) . '/class-edd-reviews-admin-meta-boxes.php';
 		include_once dirname( __FILE__ ) . '/class-edd-reviews-admin-settings.php';
+
+		new EDD_Reviews_Admin_Meta_Boxes();
+		new EDD_Reviews_Admin_Settings();
 	}
 }
-
-new EDD_Reviews_Admin();

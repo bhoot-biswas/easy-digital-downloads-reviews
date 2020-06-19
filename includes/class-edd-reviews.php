@@ -153,6 +153,7 @@ final class EDD_Reviews {
 
 		if ( $this->is_request( 'admin' ) ) {
 			include_once EDD_REVIEWS_ABSPATH . 'includes/admin/class-edd-reviews-admin.php';
+			new EDD_Reviews_Admin();
 		}
 
 		if ( $this->is_request( 'frontend' ) ) {
