@@ -216,5 +216,3 @@ class EDD_Reviews_Frontend_Scripts {
 		}
 	}
 }
-
-EDD_Reviews_Frontend_Scripts::init();

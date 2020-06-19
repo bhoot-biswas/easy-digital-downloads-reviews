@@ -157,6 +157,7 @@ final class EDD_Reviews {
 
 		if ( $this->is_request( 'frontend' ) ) {
 			$this->frontend_includes();
+			$this->frontend_hooks();
 		}
 
 		$this->theme_support_includes();
@@ -182,6 +183,15 @@ final class EDD_Reviews {
 	 */
 	public function frontend_includes() {
 		include_once EDD_REVIEWS_ABSPATH . 'includes/class-edd-reviews-frontend-scripts.php';
+	}
+
+	/**
+	 * Hook into actions and filters.
+	 *
+	 * @since 0.1.0
+	 */
+	public function frontend_hooks() {
+		EDD_Reviews_Frontend_Scripts::init();
 	}
 
 	/**
