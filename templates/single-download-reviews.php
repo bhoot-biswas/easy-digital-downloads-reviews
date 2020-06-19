@@ -122,7 +122,7 @@ if ( post_password_required() ) {
 					}
 
 					if ( edd_reviews_review_ratings_enabled() ) {
-						$comments_args['comment_field'] = '<div class="comment-form-rating">
+						$comments_args['comment_field'] = '<p class="comment-form-rating">
 							<label for="rating">' . esc_html__( 'Your rating', 'easy-digital-downloads-reviews' ) . '</label>
 							<select name="rating" id="rating" required>
 								<option value="">' . esc_html__( 'Rate&hellip;', 'easy-digital-downloads-reviews' ) . '</option>
@@ -132,7 +132,7 @@ if ( post_password_required() ) {
 								<option value="2">' . esc_html__( 'Not that bad', 'easy-digital-downloads-reviews' ) . '</option>
 								<option value="1">' . esc_html__( 'Very poor', 'easy-digital-downloads-reviews' ) . '</option>
 							</select>
-						</div>';
+						</p>';
 					}
 
 					$comments_args['comment_field'] .= '<p class="comment-form-comment">
